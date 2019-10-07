@@ -1,14 +1,7 @@
 node {
-
-  checkout scm
-  
-
-  stage('Build image') {
-    dockerImage = /usr/local/bin/docker.build("dockerben123/docker-test:latest")
+  git '…' // checks out Dockerfile & Makefile
+  def myEnv = /usr/local/bin/docker.build 'my-environment:snapshot'
+  myEnv.inside {
+    sh 'make test'
   }
-
-  stage('Push image') {
-    dockerImage.push()
-  }   
-
 }
