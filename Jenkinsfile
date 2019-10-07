@@ -1,3 +1,7 @@
+package common.pipeline
+
+import common.pipeline.Credentials
+import groovy.transform.Field
 node {
     def app
 
