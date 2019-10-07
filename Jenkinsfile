@@ -1,5 +1,5 @@
 pipeline {
-node {
+agent any
     def app
 
     stage('Clone repository') {
@@ -32,4 +32,4 @@ node {
                 echo "Trying to Push Docker Build to DockerHub"
     }
 }
-}
+
