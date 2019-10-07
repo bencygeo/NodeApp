@@ -1,17 +1,16 @@
-pipeline {
-agent any
-    
+node {
+    def app
 
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
-def app
+
         checkout scm
     }
 
     stage('Build image') {
         /* This builds the actual image */
 
-        app = /usr/local/bin/docker.build("dockerben123/docker-test")
+        app = docker.build("anandr72/nodeapp")
     }
 
     stage('Test image') {
@@ -32,4 +31,3 @@ def app
                 echo "Trying to Push Docker Build to DockerHub"
     }
 }
-
