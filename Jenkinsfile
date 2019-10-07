@@ -1,10 +1,10 @@
 pipeline {
 agent any
-    def app
+    
 
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
-
+def app
         checkout scm
     }
 
